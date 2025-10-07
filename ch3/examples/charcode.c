@@ -1,0 +1,14 @@
+/* charcode.c -- отображение символа и кода символа */
+#include <stdio.h>
+
+int main(void)
+{
+
+    char ch;
+
+    printf("Введите какой-нибудь символ.\n");
+    scanf("%c", &ch); /* ввод символа пользователем */
+    printf("Код символа %c равен %d.\n", ch, ch);
+
+    return 0;
+}
