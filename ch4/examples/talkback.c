@@ -1,6 +1,6 @@
 /* talkback.c -- любопытная информативная программа */
 #include <stdio.h>
-#include <string.h>
+#include <string.h>     /* предоставляет прототип strlen() */
 
 #define DENSITY 62.4    /* удельная масса человека в фунтах на кубический фут */
 
@@ -19,7 +19,7 @@ int main(void)
     volume = weight / DENSITY;
     printf("Хорошо, %s, ваш объем составляет %2.2f кубических футов.\n",
         name, volume);
-    printf("К тому же ваше имя состоит из %d букв, \n", letters);
+    printf("К тому же ваше имя состоит из %zd букв, \n", letters);  /* sizeof и strlen корректнее z модификатор */
     printf("и мы располагаем %d байтами для его сохранения.\n", size);
 
     return 0;

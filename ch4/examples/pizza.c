@@ -1,0 +1,24 @@
+/* pizza.c -- использует константы, определенные применительно к пицце */
+#include <stdio.h>
+
+#define PI 3.14159
+
+int main(void)
+{
+    float area, circum, radius;
+
+    printf("Каков радиус вашей пиццы в сантиметрах?\n");
+    /* scanf("%f", &radius); -- небезопасно, переработано */
+    if (scanf("%f", &radius) != 1)
+    {
+        printf("Передано некорректное значение.\n");
+        return 1;
+    }
+    area = PI * radius * radius;
+    circum = 2.0 * PI * radius;
+    printf("Основные параметры вашей пиццы:\n");
+    printf("длина окружности = %1.2f см, площадь = %1.2f см^2\n", circum,
+        area);
+
+    return 0;
+}
