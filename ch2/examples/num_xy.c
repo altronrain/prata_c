@@ -9,3 +9,8 @@ int main(void)
     printf("%d %d\n", x, y);
     return 0;
 }
+
+/*
+$ ./num_xy 
+150 15
+*/

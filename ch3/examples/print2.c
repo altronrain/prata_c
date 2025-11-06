@@ -12,7 +12,15 @@ int main(void)
     printf("un = %u, но не %d\n", un, un);
     printf("end = %hd и %d\n", end, end);
     printf("big = %ld, но не %hd\n", big, big);
-    printf("verybig = %lld, но не %ld\n", verybig, verybig);
+    printf("verybig = %lld, но не %ld\n", verybig, verybig); /* тут будет разница только на описанной системе */
 
     return 0;
 }
+
+/*
+$ ./print2 
+un = 3000000000, но не -1294967296
+end = 200 и 200
+big = 65537, но не 1
+verybig = 12345678908642, но не 12345678908642
+*/

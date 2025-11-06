@@ -12,3 +12,8 @@ int main(void)
 
     return 0;
 }
+
+/*
+$ ./float_err 
+4008175468544.000000
+*/

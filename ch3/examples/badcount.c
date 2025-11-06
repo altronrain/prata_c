@@ -14,3 +14,10 @@ int main(void)
 
     return 0;
 }
+
+/*
+$ ./badcount 
+4
+4 0 0
+-871722336 0
+*/
