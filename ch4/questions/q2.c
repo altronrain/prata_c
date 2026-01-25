@@ -1,4 +1,4 @@
-/* q5.c -- что будет выводить каждый printf */
+/* q2.c -- что будет выводить каждый printf */
 #include <stdio.h>
 #include <string.h>
 
