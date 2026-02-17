@@ -8,8 +8,8 @@
 #define BREAK2 468.0
 #define BREAK3 720.0
 #define BASE1 (RATE1 * BREAK1)								/* стоимость 360 кВт/ч */
-#define BASE2 (BASE1 + (RATE2 * (BREAK2 -BREAK1)))			/* стоимость 468 кВт/ч */
-#define BASE3 (BASE1 + BASE2 + (RATE3 * (BREAK3 -BREAK2)))	/* стоимость 720 кВт/ч */
+#define BASE2 (BASE1 + (RATE2 * (BREAK2 - BREAK1)))			/* стоимость 468 кВт/ч */
+#define BASE3 (BASE1 + BASE2 + (RATE3 * (BREAK3 - BREAK2)))	/* стоимость 720 кВт/ч */
 
 /* NB: Препроцессор не вычисляет константы BASE*
    Компилятор вычислит выражение и подставит его вместо имени константы */
