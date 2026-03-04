@@ -1,38 +1,46 @@
 /* lethead2.c */
 #include <stdio.h>
+#include <string.h>
 #define NAME "GIGATHINK, INC."
 #define ADDRESS "101 Megabuck Plaza"
 #define PLACE "Megapolis, CA 94904"
 #define WIDTH 40
+#define SPACE ' '
 
-void starbar (void);		/* прототип функции */
+void show_n_char (char ch, int num);		/* прототип функции */
 
-int main(void)
+int main (void)
 {
-	starbar ();
+	int spaces;
+
+	show_n_char ('*', WIDTH);
+	putchar ('\n');
+	show_n_char (SPACE, 12);
 	printf ("%s\n", NAME);
+	spaces = (WIDTH - strlen (ADDRESS)) / 2;
+	show_n_char (SPACE, spaces);
 	printf ("%s\n", ADDRESS);
+	show_n_char (SPACE, (WIDTH - strlen (PLACE)) / 2);
 	printf ("%s\n", PLACE);
-	starbar ();
+	show_n_char ('*', WIDTH);
+	putchar ('\n');
 
 	return 0;
 }
 
-void starbar (void)
+void show_n_char (char ch, int num)
 {
 	int count;
 
-	for (count = 1; count <= WIDTH; count++)
-		putchar ('*');
-
-	putchar ('\n');
+	for (count = 1; count <= num; count++)
+		putchar (ch);
 }
 
 /*
-$ ./lethead2 
+$ ./lethead2
 ****************************************
-GIGATHINK, INC.
-101 Megabuck Plaza
-Megapolis, CA 94904
+            GIGATHINK, INC.
+           101 Megabuck Plaza
+          Megapolis, CA 94904
 ****************************************
 */
