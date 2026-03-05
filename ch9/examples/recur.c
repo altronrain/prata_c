@@ -5,7 +5,6 @@ void up_and_down (int);
 
 int main (void)
 {
-
 	up_and_down (1);
 
 	return 0;
@@ -19,7 +18,7 @@ void up_and_down (int n)
 }
 
 /*
-22:59 $ ./recur 
+$ ./recur 
 Уровень 1: ячейка n 0x7ffe0b3b56bc
 Уровень 2: ячейка n 0x7ffe0b3b569c
 Уровень 3: ячейка n 0x7ffe0b3b567c
