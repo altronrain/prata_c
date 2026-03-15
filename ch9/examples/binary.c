@@ -1,4 +1,4 @@
-/* recur.c  -- выводит целые числа в двоичной форме */
+/* binary.c  -- выводит целые числа в двоичной форме */
 #include <stdio.h>
 
 void to_binary (unsigned long n);
