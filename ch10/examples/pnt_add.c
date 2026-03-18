@@ -17,7 +17,7 @@ int main (void)
 
 	for (index = 0; index <= SIZE; index++)
 		printf ("Указатели + %d: %10p %10p\n",
-			index, pti + index, ptf + index);
+			index, pti + index, ptf + index);	/* демонстрация смещения в единицах хранения */
 
 	return 0;
 }
