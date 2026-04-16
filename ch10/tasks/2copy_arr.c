@@ -36,6 +36,7 @@ copy_ptrs(target3, source, source + 5);
 void copy_arr (double [], double [], int);
 void copy_ptr (double [], double [], int);
 void copy_ptrs(double [], double *start, double *end);
+void print_arr(const double [], int, const char *);
 
 int main (void)
 {
@@ -45,10 +46,11 @@ int main (void)
 	double target3[5];
 
 	copy_arr (target1, source, 5);
-	printf ("\n");
+	print_arr(target1, 5, "target1");
 	copy_ptr (target2, source, 5);
-	printf ("\n");
+	print_arr(target2, 5, "target2");
 	copy_ptrs(target3, source, source + 5);
+	print_arr(target3, 5, "target3");
 
 	return 0;
 }
@@ -57,15 +59,16 @@ void copy_arr (double tgt[], double src[], int n)
 {
 	for (int i = 0; i < n; i++) {
 		tgt[i] = src[i];
-		printf ("target1[%d] = %.1f\n", i, tgt[i]);
 	}
 }
 
 void copy_ptr (double *tgt, double *src, int n)
 {
 	for (int i = 0; i < n; i++) {
-		*(tgt + i) = *(src + i);
-		printf ("target2[%d] = %.1f\n", i, *(tgt + i));
+		*tgt = *src;
+		tgt++;
+		src++;
+		/* *tgt++ = *src++; */
 	}
 }
 
@@ -75,11 +78,19 @@ void copy_ptrs (double *tgt, double *start, double *end)
 
 	while (start < end) {
 		*tgt = *start;
-		printf ("target2[%d] = %.1f\n", tgt - ptr, *tgt);
 
 		start++;
 		tgt++;
 	}
+}
+
+void print_arr(const double *arr, int n, const char *name)
+{
+	for (int i = 0; i < n; i++) {
+		printf("%s[%d] = %.1f\n", name, i, arr[i]);
+	}
+
+	printf("\n");
 }
 /*
 $ ./2copy_arr 
@@ -95,9 +106,9 @@ target2[2] = 3.3
 target2[3] = 4.4
 target2[4] = 5.5
 
-target2[0] = 1.1
-target2[1] = 2.2
-target2[2] = 3.3
-target2[3] = 4.4
-target2[4] = 5.5
+target3[0] = 1.1
+target3[1] = 2.2
+target3[2] = 3.3
+target3[3] = 4.4
+target3[4] = 5.5
 */
