@@ -1,7 +1,14 @@
-/* rain.c  -- подсчет суммарных данных по годам, средние значения за год, средние значения за месяц */
+/* 12rain.c  -- вынос логики в функции
+
+Перепишите программу rain.c из листинка 10.7 так, чтобы основные задачи решались внутри
+функций, а не в теле main().
+*/
 #include <stdio.h>
 #define MONTHS 12
 #define YEARS 5
+
+void rain_per_year (const float [][MONTHS], int);
+void rain_per_month(const float [][MONTHS], int);
 
 int main (void)
 {
@@ -13,40 +20,52 @@ int main (void)
 		{7.2, 9.9, 8.4, 3.3, 1.2, 0.8, 0.4, 0.0, 0.6, 1.7, 4.3, 6.2},
 		{7.6, 5.6, 3.8, 2.8, 3.8, 0.2, 0.0, 0.0, 0.0, 1.3, 2.6, 5.2}
 	};
+
+	rain_per_year (rain, YEARS);
+	rain_per_month(rain, YEARS);
+
+	return 0;
+}
+
+void rain_per_year (const float arr[][MONTHS], int n)
+{
 	int year, month;
 	float subtot, total;
 
 	printf (" ГОД     КОЛИЧЕСТВО ОСАДКОВ (в дюймах)\n");
 
-	for (year = 0, total = 0; year < YEARS; year++) {
+	for (year = 0, total = 0; year < n; year++) {
 
 		for (month = 0, subtot = 0; month < MONTHS; month++)
-			subtot += rain[year][month];	/* осадки за год */
+			subtot += arr[year][month];	/* осадки за год */
 
 		printf ("%5d %15.1f\n", 2010 + year, subtot);
 		total += subtot;
 	}
-
 	printf ("\nСреднегодовое количество осадков составляет %.1f дюймов.\n\n",
-		total / YEARS);
+		total / n);
+}
+
+void rain_per_month (const float arr[][MONTHS], int n)
+{
+	int year, month;
+	float subtot;
+
 	printf ("СРЕДНЕМЕСЯЧНОЕ КОЛИЧЕСТВО ОСАДКОВ:\n\n");
 	printf (" Янв  Фев  Мар  Апр  Май  Июн  Июл  Авг  Сен  Окт  Ноя  Дек\n");
 
 	for (month = 0; month < MONTHS; month++) {
 
-		for (year = 0, subtot = 0; year < YEARS; year++)
-			subtot += rain[year][month];	/* осадки за определенный месяц за все годы */
+		for (year = 0, subtot = 0; year < n; year++)
+			subtot += arr[year][month];	/* осадки за определенный месяц за все годы */
 
-		printf ("%4.1f ", subtot / YEARS);
+		printf ("%4.1f ", subtot / n);
 	}
 
 	printf ("\n");
-
-	return 0;
 }
-
 /*
-$ ./rain 
+$ ./12rain 
  ГОД     КОЛИЧЕСТВО ОСАДКОВ (в дюймах)
  2010            32.4
  2011            37.9
