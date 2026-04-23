@@ -1,4 +1,7 @@
-/* fgetsfputs2.c  -- использование функций fgets() и fputs() */
+/* fgetsfputs2.c  -- использование функций fgets() и fputs()
+
+Обработка остальной части ввода, не влезающей в буфер
+*/
 #include <stdio.h>
 #define STLEN 10
 

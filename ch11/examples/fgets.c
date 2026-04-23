@@ -1,4 +1,7 @@
-/* fgets.c  -- использование функции fgets() */
+/* fgets.c  -- использование функции fgets()
+
+Отбрасывание остальной части ввода, не влезающей в буфер
+*/
 #include <stdio.h>
 #define STLEN 10
 
@@ -15,6 +18,7 @@ int main (void)
 		while (words[i] != '\n' && words[i] != '\0')
 			i++;
 
+		/* если считанная строка меньше STLEN то заменяем \n на \0 */
 		if (words[i] == '\n')
 			words[i] = '\0';
 		else	/* requires words[i] == '\0' */
