@@ -40,7 +40,7 @@ char * s_gets (char * st, int n)
 
 	ret_val = fgets (st, n, stdin);
 
-	if (ret_val != NULL) {	/* или просто ret_val, но не рекомендуется */
+	if (ret_val != NULL) {	/* или просто ret_val */
 		while (st[i] != '\n' && st[i] != '\0')
 			i++;
 
