@@ -47,5 +47,5 @@ String: Summer
 ✔ ~/Documents/repos/prata_c/ch11/tasks [main|…9] 
 $ ./2saven_nospace
 Input a string:
-GaryString: Gary
+GaryString: Gary		<-- EOF Ctrl+D
 */
