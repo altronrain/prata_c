@@ -1,0 +1,4 @@
+spartoi: 300
+cows: 33
+2pack
+1 love
